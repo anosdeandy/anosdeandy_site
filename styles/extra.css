@@ -1,0 +1,145 @@
+/* ---------- Button Grid ---------- */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.md-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 100%;
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  border: 2px solid currentColor;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--md-primary-fg-color);
+  box-sizing: border-box;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  white-space: normal;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.md-button:hover {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  border-color: var(--md-primary-fg-color);
+}
+
+/* ---------- Calendar Grid ---------- */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-top: 1rem;
+  max-width: 400px;
+}
+
+.day {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: #ebedf0;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s ease;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.day.has-song {
+  background-color: #7bc96f; /* fallback color if image fails */
+  border: 2px solid var(--md-primary-fg-color);
+}
+
+.day:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.calendar-detail {
+  margin-top: 1.5rem;
+}
+
+/* ---------- Audio Track Player ---------- */
+.audio-track {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5em;
+  padding: 1em;
+  margin-bottom: 2em;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+  flex-wrap: wrap;
+}
+
+.audio-track .cover {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.audio-track .track-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.audio-track .track-info h3 {
+  margin: 0 0 0.4em 0;
+  font-size: 1.2em;
+}
+
+.audio-track .track-info p {
+  margin: 0.3em 0;
+  font-size: 0.95em;
+}
+
+.audio-track .track-info audio {
+  width: 100%;
+  margin-top: 0.5em;
+}
+
+.audio-track .stream-links {
+  margin-top: 0.5em;
+}
+
+.audio-track .stream-links a {
+  text-decoration: none;
+  margin-right: 0.8em;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+/* ---------- Light Theme ---------- */
+:root[data-md-color-scheme="default"] .audio-track {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+:root[data-md-color-scheme="default"] .stream-links a {
+  color: #0066cc;
+}
+
+/* ---------- Dark Theme ---------- */
+:root[data-md-color-scheme="slate"] .audio-track {
+  background-color: #1e1f22;
+  color: #e0e0e0;
+  border: 1px solid #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+:root[data-md-color-scheme="slate"] .stream-links a {
+  color: #4ea8de;
+}
